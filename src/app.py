@@ -5,8 +5,13 @@ import matplotlib.pyplot as plt
 from maps import connect_api, get_directions, duration_to_minutes
 from dijkstra import dijkstra
 
-st.set_page_config(layout="wide") 
-st.title("Visualização de Grafo com Algoritmo de Dijkstra")  
+st.set_page_config(layout="centered") 
+st.title("Grafo com Algoritmo de Dijkstra")  
+st.subheader("Alunos")
+st.markdown("""
+- Gabriel Frigo Sena Silva
+- Felipe Cordeiro de Carvalho
+""")
 
 origins = ["R. José Fugulin, 233 - Vila Campo Grande", "R. Relva Velha, 46 - Jardim Sertaozinho", "R. Inocêncio de Camargo - Jardim Pedreira", "R. Olívia Guedes Penteado, 1160 - Socorro - SP, 04766-000", "R. Eugênio Pradez - Jardim Piracuama", "Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000"]
 destination = "Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000"
