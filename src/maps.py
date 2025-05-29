@@ -16,8 +16,9 @@ def connect_api():
 
 def get_directions(client, origin:str, destination:str):
   # Obtendo rotas possíveis de origin -> destination
-  route = directions(client, origin, destination)[0]["legs"][0]
-
+  raw_route = directions(client, origin, destination)
+  route = raw_route[0]["legs"][0]
+  
   # Dados obtidos
   distance = route['distance']['text']
   duration = route['duration']['text']
@@ -25,13 +26,16 @@ def get_directions(client, origin:str, destination:str):
   end_location = route['end_location']
   start_address = route['start_address']
   start_location = route['start_location']
+  polyline = raw_route[0]['overview_polyline']['points']
 
   print(f"Distance: {distance}\n"
         f"Duration: {duration}\n"
         f"End Address: {end_address}\n"
         f"End Location (lat/lng): {end_location}\n"
         f"Start Eddress: {start_address}\n"
-        f"Start Location (lat/lng): {start_location}\n")
+        f"Start Location (lat/lng): {start_location}\n"
+        f"Polyline: {polyline}\n"
+        )
   
   return {"route":route,
           "distance":distance,
@@ -39,7 +43,8 @@ def get_directions(client, origin:str, destination:str):
           "end_address":end_address,
           "end_location":end_location,
           "start_address":start_address,
-          "start_location":start_location
+          "start_location":start_location,
+          "polyline": polyline
           }
 
 def duration_to_minutes(duration_text: str) -> int: # "7 hours 22 mins"
