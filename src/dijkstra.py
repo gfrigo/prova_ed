@@ -18,7 +18,6 @@ def dijkstra(graph: Dict, start: str) -> Dict:
       if distance < distances[neighbor]:
         distances[neighbor] = distance
         heapq.heappush(min_heap, (distance, neighbor))
-        0
 
   return distances
 
