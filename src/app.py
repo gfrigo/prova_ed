@@ -1,7 +1,7 @@
 from maps import connect_api, get_directions, duration_to_minutes
 from dijkstra import dijkstra
 
-origins = ["R. José Fugulin, 233 - Vila Campo Grande", "R. Relva Velha, 46 - Jardim Sertaozinho", "R. Inocêncio de Camargo - Jardim Pedreira", "R. Olívia Guedes Penteado, 1160 - Socorro - SP, 04766-000", "R. Eugênio Pradez - Jardim Piracuama"]
+origins = ["R. José Fugulin, 233 - Vila Campo Grande", "R. Relva Velha, 46 - Jardim Sertaozinho", "R. Inocêncio de Camargo - Jardim Pedreira", "R. Olívia Guedes Penteado, 1160 - Socorro - SP, 04766-000", "R. Eugênio Pradez - Jardim Piracuama", "Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000"]
 destination = "Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000"
 
 client = connect_api()
@@ -34,3 +34,7 @@ for origin in origins:
 
 for node, conn in graph.items():
    print(f"Chave: {node} Valor: {conn}\n")
+
+start = origins[-1]
+distances = dijkstra(graph, start)
+print(distances)
