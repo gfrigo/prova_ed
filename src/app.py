@@ -110,6 +110,7 @@ for node, coord in coordinates.items():
         icon=folium.Icon(color="blue", icon="info-sign")
     ).add_to(m)
 
+
 shortest_paths = {}
 for target_node in nodes:
     if target_node == start:
@@ -152,3 +153,6 @@ st_data = st_folium(m, width=1000, height=600)
 
 st.subheader("Distâncias calculadas com Dijkstra (em minutos):")  
 st.json(distances)
+
+st.subheader("Lógica do Algoritmo")  
+st.image("../assets/estudos.jpg", caption="Anotações", width=300)
